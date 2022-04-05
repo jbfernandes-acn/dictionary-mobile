@@ -1,10 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
-export default function Navbar () {
-    const navigation = useNavigation();
+export default function Navbar ({ navigation }) {
 
     return (
         <View style={styles.navbar}>

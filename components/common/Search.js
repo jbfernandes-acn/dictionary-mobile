@@ -3,10 +3,11 @@ import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function Search ({placeholder, onSubmit}) {
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = () => {
         onSubmit(searchTerm.toLowerCase())
+        setSearchTerm('');
     }
 
     return (

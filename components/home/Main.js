@@ -1,12 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 import Search from '../common/Search';
 import WordOfTheDay from './WordOfTheDay';
 
-export default function Main () {
-    const navigation = useNavigation();
+export default function Main ({navigation}) {
 
     const handleSearch = (searchTerm) => {
         navigation.navigate('worddetail', { word: searchTerm })

@@ -1,21 +1,22 @@
 import React, {useState, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
+import { getWordOfTheDayFromAPI } from '../../redux/actions/wordoftheday';
+import { getWordOfTheDay, isWordOfTheDayLoading } from '../../redux/selectors';
+
 export default function WordOfTheDay ({}) {
-    const [wordOfTheDay, setWordOfTheDay] = useState('obnoxious')
-    const [isLoading, setIsLoading] = useState(true)
+    const wordOfTheDay = useSelector(getWordOfTheDay)
+    const isLoading = useSelector(isWordOfTheDayLoading)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        axios.get(`https://random-word-api.herokuapp.com/word?number=1`)
-            .then(response => {
-                setWordOfTheDay(response.data[0])
-                setIsLoading(false)
-            })
-            .catch(error => {
-                setWordOfTheDay(null)
-            });
-    }, [])
+      if (!wordOfTheDay) {
+        dispatch(getWordOfTheDayFromAPI())
+      }
+    }, [dispatch, wordOfTheDay])
 
     return (
         <View style={styles.container}>
