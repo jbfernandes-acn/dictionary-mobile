@@ -8,7 +8,7 @@ import Navbar from '../components/common/Navbar';
 import Main from '../components/home/Main';
 import GradientBackground from '../components/common/GradientBackground';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, route }) {
 
   const dispatch = useDispatch()
 
@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <GradientBackground />
-      <Navbar navigation={navigation}/>
+      <Navbar navigation={navigation} route={route}/>
       <Main navigation={navigation}/>
     </View>
   );

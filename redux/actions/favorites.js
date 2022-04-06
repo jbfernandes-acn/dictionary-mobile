@@ -6,7 +6,7 @@ import {
     REMOVE_FAVORITE 
 } from '../actionTypes'
 
-import { getData } from '../../resources/storage';
+import { getDataFromStorage } from '../../resources/storage';
 
 const startFavoritesRequest = () => ({
     type: START_FAVORITES_REQUEST
@@ -20,7 +20,7 @@ const endGetFavoritesRequest = (favorites) => ({
 export const retrieveFavoritesFromStorage = () => {
     return (dispatch) => {
         dispatch(startFavoritesRequest())
-        getData('favorites').then(data => {
+        getDataFromStorage('favorites').then(data => {
             const favorites = JSON.parse(data) || [];
             dispatch(endGetFavoritesRequest(favorites))
         }).catch(error => {

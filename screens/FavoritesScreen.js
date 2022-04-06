@@ -1,24 +1,14 @@
-import { StyleSheet, View, Text } from 'react-native';
-
+import { StyleSheet, View } from 'react-native';
 import Navbar from '../components/common/Navbar';
 import GradientBackground from '../components/common/GradientBackground';
-import Accordion from '../components/common/Accordion';
 import FavoritesList from '../components/favorites/FavoritesList';
 
-export default function FavoritesScreen({ navigation }) {
+export default function FavoritesScreen({ navigation, route }) {
   return (
     <View style={styles.container}>
       <GradientBackground />
-      <Navbar navigation={navigation}/>
+      <Navbar navigation={navigation} route={route}/>
       <FavoritesList navigation={navigation}/>
-      {/*
-      <View style={styles.main}>
-        <Text style={styles.title}>Favorites</Text>
-        <Accordion title="wow" style={styles.accordion}>
-          <Text style={styles.override}>yeah</Text>
-        </Accordion>
-      </View>
-       */}
     </View>
   );
 }

@@ -1,5 +1,6 @@
 import { START_WORD_REQUEST, END_WORD_REQUEST } from '../actionTypes'
 
+
 const initialState = {
     word: null,
     isLoading: true

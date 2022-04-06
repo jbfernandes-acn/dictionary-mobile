@@ -2,23 +2,22 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { List, Colors } from 'react-native-paper';
 
 import { removeFavorite } from '../../redux/actions/favorites';
 import { areFavoritesLoading, getFavorites } from '../../redux/selectors';
-
-import { getData, storeData } from '../../resources/storage';
+import routes from '../../resources/routes';
 
 export default function FavoritesList ({ navigation }) {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const [sortAscending, setSortAscending] = useState(true)
-    const favorites = useSelector(getFavorites(sortAscending));
+    const favorites = useSelector(getFavorites(sortAscending))
     const isLoading = useSelector(areFavoritesLoading)
 
     const handleNavigation = (word) => {
-        navigation.navigate('worddetail', { word })
+        navigation.navigate(routes.WORD_DETAIL, { word })
     }
 
     const handleRemoveFavorite = (favorite) => {
@@ -53,7 +52,7 @@ export default function FavoritesList ({ navigation }) {
                         <List.Item
                             title={<Text style={styles.favoriteItem}>{item}</Text>}
                             onPress={() => handleNavigation(item)}
-                            left={ props => 
+                            right={ props => 
                                 <TouchableOpacity  
                                     onPress={() => handleRemoveFavorite(item)}>
                                     <List.Icon {...props} color={Colors.blue900} icon="delete" />

@@ -1,15 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
-export default function Navbar ({ navigation }) {
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+
+import routes from '../../resources/routes'
+
+export default function Navbar ({ navigation, route }) {
+
+    const getHomeIcon = () => {
+        return route.name === routes.HOME ? 'home' : 'home-outline' 
+    }
+    const getFavoritesIcon = () => {
+        return route.name === routes.FAVORITES ? 'heart' : 'heart-outline' 
+    }
 
     return (
         <View style={styles.navbar}>
             <TouchableOpacity 
               style={styles.homeIcon} 
               onPress={() => {navigation.navigate('home')}}>
-                <Ionicons name="home-outline" size={28} color="white" />
+                <Ionicons name={getHomeIcon()} size={28} color={'white'} />
             </TouchableOpacity>
             <View style={styles.title}>
                 <Text style={styles.title}>Dictionary</Text>
@@ -17,7 +27,7 @@ export default function Navbar ({ navigation }) {
             <TouchableOpacity 
               style={styles.favoritesIcon} 
               onPress={() => {navigation.navigate('favorites')}}>
-                <Ionicons name="heart-outline" size={28} color="white" />
+                <Ionicons name={getFavoritesIcon()} size={28} color={'white'} />
             </TouchableOpacity>
         </View>
     );

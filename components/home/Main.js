@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
 
-import Search from '../common/Search';
-import WordOfTheDay from './WordOfTheDay';
+import { StyleSheet, Text, View } from 'react-native'
+
+import Search from '../common/Search'
+import WordOfTheDay from './WordOfTheDay'
+import routes from '../../resources/routes'
 
 export default function Main ({navigation}) {
 
     const handleSearch = (searchTerm) => {
-        navigation.navigate('worddetail', { word: searchTerm })
+        navigation.navigate(routes.WORD_DETAIL, { word: searchTerm })
     }
 
     return (

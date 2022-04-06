@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
-import axios from 'axios';
 
 import { getWordOfTheDayFromAPI } from '../../redux/actions/wordoftheday';
 import { getWordOfTheDay, isWordOfTheDayLoading } from '../../redux/selectors';
 
-export default function WordOfTheDay ({}) {
+export default function WordOfTheDay () {
     const wordOfTheDay = useSelector(getWordOfTheDay)
     const isLoading = useSelector(isWordOfTheDayLoading)
 

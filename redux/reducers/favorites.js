@@ -6,7 +6,8 @@ import {
     REMOVE_FAVORITE 
 } from '../actionTypes'
 
-import { storeData, getData } from '../../resources/storage';
+import { storeData } from '../../resources/storage';
+
 
 const initialState = {
     favorites: [],
@@ -37,7 +38,6 @@ export default function (state = initialState, action) {
             const newFavorite = action.newFavorite
             newFavoriteList = [...state.favorites, newFavorite]
             storeData('favorites', newFavoriteList);
-            console.log('ADDED ', newFavorite);
             return {
                 ...state,
                 favorites: newFavoriteList
@@ -46,7 +46,6 @@ export default function (state = initialState, action) {
             const favoriteToRemove = action.favoriteToRemove
             newFavoriteList = state.favorites.filter(favorite => favorite !== favoriteToRemove)
             storeData('favorites', newFavoriteList);
-            console.log('REMOVED ', favoriteToRemove);
             return {
                 ...state,
                 favorites: newFavoriteList

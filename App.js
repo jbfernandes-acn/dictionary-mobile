@@ -5,6 +5,7 @@ import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-nati
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
+import routes from './resources/routes';
 
 import store from './redux/store';
 
@@ -33,9 +34,9 @@ export default function App() {
               headerShown: false
             }}
             initialRouteName="home">
-            <Stack.Screen name="home" component={HomeScreen} />
-            <Stack.Screen name="favorites" component={FavoritesScreen} />
-            <Stack.Screen name="worddetail" component={WordDetailScreen} />
+            <Stack.Screen name={routes.HOME} component={HomeScreen} />
+            <Stack.Screen name={routes.FAVORITES} component={FavoritesScreen} />
+            <Stack.Screen name={routes.WORD_DETAIL} component={WordDetailScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </TouchableWithoutFeedback>

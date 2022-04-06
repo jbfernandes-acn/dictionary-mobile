@@ -1,4 +1,3 @@
-
 import word from './word'
 import favorites from './favorites'
 import wordoftheday from './wordoftheday'

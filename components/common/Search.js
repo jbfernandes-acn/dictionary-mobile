@@ -1,20 +1,28 @@
-import React, {useState} from 'react'
-import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import React, { useState } from 'react'
+
+import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
 
 export default function Search ({placeholder, onSubmit}) {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const handleChangeText = (newText) => {
+        let formattedText = newText.replace(/[^a-zA-Z]/g, '')
+        setSearchTerm(formattedText)
+    }
 
     const handleSubmit = () => {
-        onSubmit(searchTerm.toLowerCase())
-        setSearchTerm('');
+        if (searchTerm) {
+            onSubmit(searchTerm.toLowerCase())
+            setSearchTerm('')
+        }
     }
 
     return (
         <View style={styles.container}>
             <TextInput 
                 value={searchTerm} 
-                onChangeText={setSearchTerm}
+                onChangeText={handleChangeText}
                 style={styles.search} 
                 placeholder={placeholder}
                 onSubmitEditing={handleSubmit}

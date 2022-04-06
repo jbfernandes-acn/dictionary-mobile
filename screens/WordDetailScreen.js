@@ -8,7 +8,7 @@ export default function WordDetailScreen ({ navigation, route }) {
   return (
     <View style={styles.container}>
       <GradientBackground />
-      <Navbar navigation={navigation}/>
+      <Navbar navigation={navigation} route={route}/>
       <WordDetail navigation={navigation} route={route}/>
     </View>
   );
