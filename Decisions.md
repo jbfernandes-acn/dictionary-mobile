@@ -12,7 +12,7 @@ Para facilitar o desenvolvimento de algumas partes da UI, utilizei a biblioteca 
 ## Storage
 Para guardar a lista de favoritos no dispositivo, utilizei uma solução de armazenamento persistente.
 
-## 
+## Obtenção de dados
 A lista de favoritos é apresentada na página de favoritos. No entanto, esta lista também é necessária na página de detalhe de uma palavra. Visto que a lista tem que ser acedida em páginas diferentes, coloquei a instrução de dispatch da ação de obtenção da lista de favoritos no componente App. Desta forma, independentemente da página à qual se aceda primeiro (favoritos ou detalhe), teremos sempre acesso à lista de favoritos.
 
 
